@@ -1,0 +1,210 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="clr-namespace:MyXboxController.Converters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="MyXboxController.MainWindow"
+        Title="MainWindow" HorizontalAlignment="Left" VerticalAlignment="Top" Height="596" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/img/config_ctripes.png" Stretch="None" TileMode="Tile" Viewport="0,0,40,80" 
+                  ViewportUnits="Absolute"/>
+    </Window.Background>
+    <Window.Resources>
+        <converters:BatteryTypeValueToBatteryTypeString x:Key="BatteryTypeValueToBatteryTypeString" />
+        <converters:ThumbStickToThicknessConverter x:Key="ThumbMarginConverter" />
+        <converters:TriggerToOpacityConverter x:Key="TriggerToOpacityConverter" />
+
+        <BooleanToVisibilityConverter x:Key="BoolVisibilityConverter" />
+
+    </Window.Resources>
+    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="76" DockPanel.Dock="Top">
+            <Label Content="MyXboxController" Foreground="#FF93C53C" FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Left" Height="76" Width="350" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Resources/img/xbox-logo.png" RenderTransformOrigin="0.776,0.908" Height="76" />
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Bottom">
+            <Image Source="Resources/img/XBox360WirelessController_black_bw_2.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="552,101,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerButtonY.png"  Visibility="{Binding SelectedController.IsYPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="599,149,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerButtonB.png"  Visibility="{Binding SelectedController.IsBPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="552,197,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerButtonA.png"  Visibility="{Binding SelectedController.IsAPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Right" Height="48" Margin="0,148,225,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerButtonX.png"  Visibility="{Binding SelectedController.IsXPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="447,149,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerStart.png"  Visibility="{Binding SelectedController.IsStartPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="302,145,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerBack.png"  Visibility="{Binding SelectedController.IsBackPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="48" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="440,382,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerLeftShoulder.png"  Visibility="{Binding SelectedController.IsLeftShoulderPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="73" />
+            <Image HorizontalAlignment="Left" Height="48" Margin="267,382,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerRightShoulder.png"  Visibility="{Binding SelectedController.IsRightShoulderPressed, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" IsHitTestVisible="True" Width="73" />
+            <Image HorizontalAlignment="Right" Margin="0,382,391,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerLeftTrigger.png" IsHitTestVisible="True" Width="41" Opacity="{Binding SelectedController.LeftTrigger, Mode=OneWay, Converter={StaticResource TriggerToOpacityConverter}}"/>
+            <Image HorizontalAlignment="Left" Margin="393,382,0,0" VerticalAlignment="Top" Source="Resources/img/xboxControllerRightTrigger.png" IsHitTestVisible="True" Width="41" Opacity="{Binding SelectedController.RightTrigger, Mode=OneWay}"/>
+
+            <Border HorizontalAlignment="Left" Height="115" VerticalAlignment="Top"  IsHitTestVisible="True" Width="126" Margin="442,225,0,0">
+                <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Source="Resources/img/xboxControllerRightThumbstick.png" IsHitTestVisible="True" Width="100" Margin="{Binding SelectedController.RightThumbStick, Converter={StaticResource ThumbMarginConverter}, Mode=OneWay}" />
+            </Border>
+            <Border HorizontalAlignment="Left" Height="115" VerticalAlignment="Top"  IsHitTestVisible="True" Width="126" Margin="169,119,0,0">
+                <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Source="Resources/img/xboxControllerLeftThumbstick.png" IsHitTestVisible="True" Width="100" Margin="{Binding SelectedController.LeftThumbStick, Converter={StaticResource ThumbMarginConverter}, Mode=OneWay}" />
+            </Border>
+
+
+
+            <Grid VerticalAlignment="Top" Margin="0,0,1,0" HorizontalAlignment="Right" Width="164" Background="White" Height="112">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="2,10,2,10">
+                    <TextBlock Margin="5"><Run Text="Controller Index:"/></TextBlock>
+                    <ComboBox Width="50" SelectionChanged="SelectedControllerChanged"  >
+                        <ComboBoxItem IsSelected="True" Content="0"/>
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                    </ComboBox>
+                </StackPanel>
+                <Grid  Height="300" Width="350" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" MinHeight="200"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+
+                        </Grid.RowDefinitions>
+
+                        <CheckBox x:Name="CheckboxAButton" Grid.Row="0" IsChecked="{Binding SelectedController.IsAPressed, Mode=OneWay}" />
+                        <TextBlock Text="A Button" Grid.Row="0" Grid.Column="1"  />
+
+                        <CheckBox x:Name="CheckboxBButton"  Grid.Row="1" IsChecked="{Binding SelectedController.IsBPressed, Mode=OneWay}" />
+                        <TextBlock Text="B Button" Grid.Row="1" Grid.Column="1" />
+
+                        <CheckBox x:Name="CheckboxXButton"  Grid.Row="2"  IsChecked="{Binding SelectedController.IsXPressed, Mode=OneWay}"  />
+                        <TextBlock Text="X Button" Grid.Row="2" Grid.Column="1" />
+
+                        <CheckBox x:Name="CheckboxYButton"  Grid.Row="3"  IsChecked="{Binding SelectedController.IsYPressed, Mode=OneWay}" />
+                        <TextBlock Text="Y Button" Grid.Row="3" Grid.Column="1" />
+
+
+                        <CheckBox x:Name="CheckboxLeftShoulderButton"  Grid.Row="4"  IsChecked="{Binding SelectedController.IsLeftShoulderPressed, Mode=OneWay}"  />
+                        <TextBlock Text="Left Shoulder Button" Grid.Row="4" Grid.Column="1" />
+
+                        <CheckBox x:Name="CheckboxRightShoulderButton"  Grid.Row="5"  IsChecked="{Binding SelectedController.IsRightShoulderPressed, Mode=OneWay}"  />
+                        <TextBlock Text="Right Shoulder Button" Grid.Row="5" Grid.Column="1" />
+
+                        <CheckBox x:Name="CheckboxLeftStickButton"  Grid.Row="6"  IsChecked="{Binding SelectedController.IsLeftStickPressed, Mode=OneWay}"  />
+                        <TextBlock Text="Left Stick Button" Grid.Row="6" Grid.Column="1" />
+
+
+                        <CheckBox x:Name="CheckboxRightStickButton"  Grid.Row="7"   IsChecked="{Binding SelectedController.IsRightStickPressed, Mode=OneWay}" />
+                        <TextBlock Text="Right Stick Button" Grid.Row="7" Grid.Column="1" />
+
+
+                        <Grid Width="50" Height="50" Grid.Row="8"  Grid.ColumnSpan="2">
+                            <CheckBox x:Name="CheckboxDPadUpButton"  HorizontalAlignment="Center" VerticalAlignment="Top"  IsChecked="{Binding SelectedController.IsDPadUpPressed, Mode=OneWay}" />
+                            <CheckBox x:Name="CheckboxDPadDownButton"   HorizontalAlignment="Center" VerticalAlignment="Bottom"  IsChecked="{Binding SelectedController.IsDPadDownPressed, Mode=OneWay}" />
+                            <CheckBox x:Name="CheckboxDPadLeftButton"  HorizontalAlignment="Left" VerticalAlignment="Center"  IsChecked="{Binding SelectedController.IsDPadLeftPressed, Mode=OneWay}" />
+                            <CheckBox x:Name="CheckboxDPadRightButton"  HorizontalAlignment="Right" VerticalAlignment="Center"  IsChecked="{Binding SelectedController.IsDPadRightPressed, Mode=OneWay}" />
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1" MinWidth="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Left X Axis " Grid.Row="0" />
+                        <ProgressBar Grid.Row="1" Minimum="-32768" Maximum="32767"  Value="{Binding SelectedController.LeftThumbStick.X, Mode=OneWay}"  />
+
+                        <TextBlock Text="Left Y Axis" Grid.Row="2" />
+                        <ProgressBar Grid.Row="3"  Minimum="-32768" Maximum="32767"  Value="{Binding SelectedController.LeftThumbStick.Y, Mode=OneWay}" />
+
+                        <TextBlock Text="Right X Axis" Grid.Row="4" />
+                        <ProgressBar Grid.Row="5"  Minimum="-32768" Maximum="32767"  Value="{Binding SelectedController.RightThumbStick.X, Mode=OneWay}"  />
+
+                        <TextBlock Text="Right Y Axis" Grid.Row="6" />
+                        <ProgressBar Grid.Row="7" Minimum="-32768" Maximum="32767"  Value="{Binding SelectedController.RightThumbStick.Y, Mode=OneWay}"  />
+
+                        <TextBlock Text="Left Trigger" Grid.Row="8" />
+                        <ProgressBar Grid.Row="9"  Minimum="0" Maximum="255"   Value="{Binding SelectedController.LeftTrigger, Mode=OneWay}" />
+
+                        <TextBlock Text="Right Trigger" Grid.Row="10" />
+                        <ProgressBar Grid.Row="11"  Minimum="0" Maximum="255" Value="{Binding SelectedController.RightTrigger, Mode=OneWay}" />
+                    </Grid>
+
+
+                    <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="1"><Run Text="Vibration Motors"/></TextBlock>
+                        <TextBlock Grid.Column="1"><Run Text="Left Motor"/></TextBlock>
+                        <TextBlock Grid.Column="2"><Run Text="Right Motor"/></TextBlock>
+                        <Button Grid.Column="3" Grid.Row="1" Content="Send" Click="SendVibration_Click" />
+                        <Slider Margin="2" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center" Minimum="0" Maximum="1"  x:Name="LeftMotorSpeed"/>
+                        <Slider Margin="2" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Center" Minimum="0" Maximum="1" x:Name="RightMotorSpeed" />
+
+
+
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.ColumnSpan="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Battery Info:" />
+                        <TextBlock  Grid.Column="1" Text="{Binding SelectedController.BatteryInformationGamepad}" />
+                    </Grid>
+                </Grid>
+
+
+
+
+            </Grid>
+
+        </Grid>
+
+    </DockPanel>
+</Window>

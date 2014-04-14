@@ -1,14 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyXboxController", "MyXboxController\MyXboxController.csproj", "{03856C9E-0926-41DB-A13A-AE3D08285428}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J2i.Net.XInputWrapper", "J2i.Net.InputWrapper\J2i.Net.XInputWrapper.csproj", "{146BCDF6-0354-4401-BBDD-57A52D2598A6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J2i.Net.XinputClient", "J2i.Net.XinputClient\J2i.Net.XinputClient.csproj", "{61F3145A-F06D-452C-86C4-20D65DA2B2FC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{03856C9E-0926-41DB-A13A-AE3D08285428} = {03856C9E-0926-41DB-A13A-AE3D08285428}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,26 +23,6 @@ Global
 		{03856C9E-0926-41DB-A13A-AE3D08285428}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{03856C9E-0926-41DB-A13A-AE3D08285428}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{03856C9E-0926-41DB-A13A-AE3D08285428}.Release|x86.ActiveCfg = Release|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{146BCDF6-0354-4401-BBDD-57A52D2598A6}.Release|x86.ActiveCfg = Release|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{61F3145A-F06D-452C-86C4-20D65DA2B2FC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
