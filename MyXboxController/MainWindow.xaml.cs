@@ -23,18 +23,15 @@ namespace MyXboxController {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged {
+
+        public XboxController SelectedController { get; private set; }
+
         public MainWindow() {
             InitializeComponent();
             DataContext = this;
-            _selectedController = XboxController.RetrieveController(0);
-            _selectedController.StateChanged += _selectedController_StateChanged;
+            SelectedController = XboxController.RetrieveController(0);
+            SelectedController.StateChanged += _selectedController_StateChanged;
             //XboxController.StartPolling();
-        }
-
-        public Thickness ThumbR {
-            get {
-                return new Thickness(((float)_selectedController.RightThumbStick.X / 32767) * 5, ((float)_selectedController.RightThumbStick.Y / -32767) * 5, 0, 0);
-            }
         }
 
         protected override void OnClosing(CancelEventArgs e) {
@@ -45,18 +42,7 @@ namespace MyXboxController {
         void _selectedController_StateChanged(object sender, XboxControllerStateChangedEventArgs e) {
             OnPropertyChanged("SelectedController");
         }
-
-
-        public XboxController SelectedController {
-
-            get { return _selectedController; }
-        }
-
-
-        volatile bool _keepRunning;
-        XboxController _selectedController;
-
-
+       
         public void OnPropertyChanged(string name) {
             if (PropertyChanged != null) {
                 Action a = () => { PropertyChanged(this, new PropertyChangedEventArgs(name)); };
@@ -67,17 +53,14 @@ namespace MyXboxController {
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void SelectedControllerChanged(object sender, SelectionChangedEventArgs e) {
-            _selectedController = XboxController.RetrieveController(((ComboBox)sender).SelectedIndex);
+            SelectedController = XboxController.RetrieveController(((ComboBox)sender).SelectedIndex);            
             OnPropertyChanged("SelectedController");
         }
 
         private void SendVibration_Click(object sender, RoutedEventArgs e) {
             double leftMotorSpeed = LeftMotorSpeed.Value;
             double rightMotorSpeed = RightMotorSpeed.Value;
-            _selectedController.Vibrate(leftMotorSpeed, rightMotorSpeed, TimeSpan.FromSeconds(2));
+            SelectedController.Vibrate(leftMotorSpeed, rightMotorSpeed, TimeSpan.FromSeconds(2));
         }
-
-    }
-
-    
+    }    
 }
