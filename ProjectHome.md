@@ -1,0 +1,1 @@
+MediaPortal plugin (use XBOX 360 Controller as input device)
